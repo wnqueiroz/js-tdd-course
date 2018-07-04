@@ -1,0 +1,23 @@
+{
+  "name": "modules-in-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --colors --progress",
+    "watch": "npm run build -- --watch"
+  },
+  "keywords": [],
+  "author": "William Queiroz <williamdenovaisqueiroz@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015-native-modules": "^6.9.4",
+    "webpack": "^4.14.0",
+    "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "ramda": "^0.22.1"
+  }
+}
