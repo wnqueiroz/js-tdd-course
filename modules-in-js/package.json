@@ -18,6 +18,8 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
-    "ramda": "^0.22.1"
+    "ramda": "^0.22.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   }
 }
