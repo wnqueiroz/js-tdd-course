@@ -1,21 +1,25 @@
 describe('Main', () => {
-  describe('Method A', () => {
-    context('Case 1', () => {
-      it.skip('should happen bla bla bla', () => {
-        // espera que aconteça
-        // Entrada de dados / método sum(2, 2)
-        // Espera retornar (4) => true |  (3) => false
-        throw new Error('just an error');
-      });
-    });
-    context('Case 2', () => {
-      it('should happen bla bla bla', () => {
-        // espera que aconteça
-        // Entrada de dados / método sum(2, 2)
-        // Espera retornar (4) => true |  (3) => false
-        throw new Error('just another error');
-      });
-    });
+  // roda uma vez antes do bloco
+  before(() => {
+    console.log('before');
   });
-  describe('Method B', () => {});
+
+  // roda uma vez depois do bloco
+  after(() => {
+    console.log('after');
+  });
+
+  // roda todas as vezes, antes de CADA bloco
+  beforeEach(() => {
+    console.log('beforeEach');
+  });
+
+  // roda todas as vezes, depois de CADA bloco
+  afterEach(() => {
+    console.log('afterEach');
+  });
+
+  it('test 1', () => {});
+
+  it('test 2', () => {});
 });
