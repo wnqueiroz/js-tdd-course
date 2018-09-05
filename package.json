@@ -25,13 +25,13 @@
   },
   "homepage": "https://github.com/wnqueiroz/js-tdd-course#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "husky": "^1.0.0-rc.9",
-    "mocha": "^5.2.0"
     "babel-preset-env": "1.7.0",
     "babel-register": "6.26.0",
+    "chai": "3.5.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "13.0.0",
+    "eslint-plugin-import": "2.13.0",
+    "husky": "1.0.0-rc.9",
+    "mocha": "5.2.0"
   }
 }
