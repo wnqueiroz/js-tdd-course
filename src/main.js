@@ -1,6 +1,14 @@
-const a = 3;
-const b = 2;
-const c = 'gfghdashjgdsagdfsjahgfdghafsghdfashgfdhgdjadgsajhfdhgfasghdfghasfdggasjhfjhghfdhjasgdhgaskhgdjasgdgasgdjhagsdhgashgdashgdhgasjhgdahgsjhdgas';
+module.exports = {
+  sum: function () {
 
-const sum = () => a + b + c;
-sum();
+  },
+  sub: function () {
+
+  },
+  div: function () {
+
+  },
+  mult: function () {
+
+  },
+}

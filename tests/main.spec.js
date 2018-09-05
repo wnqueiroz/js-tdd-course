@@ -1,35 +1,35 @@
 var expect = require('chai').expect
+var calc = require('../src/main.js')
 
-describe('Main', () => {
-  let array = [];
+describe('Calculator', () => {
 
-  // roda todas as vezes, antes de CADA bloco
-  beforeEach(() => {
-    array = [1, 2, 3]
-  });
+  //  smoke tests
+  describe('Smoke Tests', () => {
 
-  // testar tipos ou se existe (smoke test)
-  it('should be an array', () => {
-    expect(array).to.be.an('array')
+    it('should exists the Calculator lib', () => {
+      expect(calc).to.exist
+    })
+
+    it('should exists method `sum`', () => {
+      expect(calc.sum).to.exist
+      expect(calc.sum).to.be.a.function
+    })
+
+    it('should exists method `sub`', () => {
+      expect(calc.sub).to.exist
+      expect(calc.sub).to.be.a.function
+    })
+
+    it('should exists method `mult`', () => {
+      expect(calc.mult).to.exist
+      expect(calc.mult).to.be.a.function
+    })
+
+    it('should exists method `div`', () => {
+      expect(calc.div).to.exist
+      expect(calc.div).to.be.a.function
+    })
+
   })
-
-  it('should have a size of 4 when push another value to the array', () => {
-    array.push(4)
-    expect(array).to.have.lengthOf(4);
-  });
-
-  it('should return true when pop 3 from the array', () => {
-    expect(array.pop() === 3).to.be.true
-  });
-
-  it('should a size of 2 when pop a value from the array', () => {
-    array.pop()
-    expect(array).to.have.lengthOf(2);
-  });
-
-  it('should remove the value 3 when use pop in the array', () => {
-    array.pop() === 3
-    expect(array).to.not.include(3)
-  });
 
 });
