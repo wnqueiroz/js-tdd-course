@@ -1,14 +1,6 @@
-module.exports = {
-  sum: function (a, b) {
-    return a + b
-  },
-  sub: function (a, b) {
-    return a - b
-  },
-  div: function (a, b) {
-    return b === 0 ? 'não é possível divisão por zero!' : a / b
-  },
-  mult: function (a, b) {
-    return a * b
-  },
-}
+const sum = (a, b) => a + b
+const sub = (a, b) => a - b
+const div = (a, b) => b === 0 ? 'não é possível divisão por zero!' : a / b
+const mult = (a, b) => a * b
+
+export { sum, sub, div, mult }
