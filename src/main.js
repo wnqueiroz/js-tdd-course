@@ -1,9 +1,10 @@
-const FizzBuzz = (num) => {
-  if (num === 0) return 0;
-  if (num % 3 === 0 && num % 5 === 0) return 'FizzBuzz';
-  if (num % 3 === 0) return 'Fizz';
-  if (num % 5 === 0) return 'Buzz';
-  return num;
-};
+const search = () => {};
+const searchAlbuns = () => {};
+const searchArtists = () => {};
+const searchTracks = () => {};
+const searchPlaylists = () => {};
 
-export default FizzBuzz;
+// prettier-ignore
+export {
+  search, searchAlbuns, searchArtists, searchTracks, searchPlaylists
+};
