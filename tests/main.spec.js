@@ -17,6 +17,16 @@ sinonStubPromise(sinon);
 global.fetch = require('node-fetch');
 
 describe('Spotify', () => {
+  let fetchedStub;
+
+  beforeEach(() => {
+    fetchedStub = sinon.stub(global, 'fetch');
+  });
+
+  afterEach(() => {
+    fetchedStub.restore();
+  });
+
   describe('Smoke Tests', () => {
     it('should exists the search method', () => {
       expect(search).to.exist;
@@ -37,27 +47,30 @@ describe('Spotify', () => {
 
   describe('Generic Search', () => {
     it('should call fetch function', () => {
-      const fetchedStub = sinon.stub(global, 'fetch');
       const artists = search();
-
       expect(fetchedStub).to.have.been.calledOnce;
-
-      fetchedStub.restore();
     });
 
     it('should receive the correct URL to fetch', () => {
-      const fetchedStub = sinon.stub(global, 'fetch');
-      const artists = search('Maron 5', 'artist');
+      context('passing one type', () => {
+        const artists = search('Maron 5', 'artist');
 
-      expect(fetchedStub).to.have.been.calledWith(
-        'https://api.spotify.com/v1/search?q=Maron%205&type=artist'
-      );
+        expect(fetchedStub).to.have.been.calledWith(
+          'https://api.spotify.com/v1/search?q=Maron%205&type=artist'
+        );
 
-      const album = search('Maron 5', 'album');
+        const album = search('Maron 5', 'album');
 
-      expect(fetchedStub).to.have.been.calledWith(
-        'https://api.spotify.com/v1/search?q=Maron%205&type=album'
-      );
+        expect(fetchedStub).to.have.been.calledWith(
+          'https://api.spotify.com/v1/search?q=Maron%205&type=album'
+        );
+      });
+      context('passing more than one type', () => {
+        const artistsAndAlbuns = search('Maron 5', ['artist', 'album']);
+        expect(fetchedStub).to.have.been.calledWith(
+          'https://api.spotify.com/v1/search?q=Maron%205&type=artist,album'
+        );
+      });
     });
   });
 });
