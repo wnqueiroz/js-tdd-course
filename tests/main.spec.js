@@ -41,6 +41,23 @@ describe('Spotify', () => {
       const artists = search();
 
       expect(fetchedStub).to.have.been.calledOnce;
+
+      fetchedStub.restore();
+    });
+
+    it('should receive the correct URL to fetch', () => {
+      const fetchedStub = sinon.stub(global, 'fetch');
+      const artists = search('Maron 5', 'artist');
+
+      expect(fetchedStub).to.have.been.calledWith(
+        'https://api.spotify.com/v1/search?q=Maron%205&type=artist'
+      );
+
+      const album = search('Maron 5', 'album');
+
+      expect(fetchedStub).to.have.been.calledWith(
+        'https://api.spotify.com/v1/search?q=Maron%205&type=album'
+      );
     });
   });
 });
