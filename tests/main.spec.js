@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
 import {
   search,
   searchAlbuns,
@@ -6,6 +6,15 @@ import {
   searchTracks,
   searchPlaylists
 } from '../src/main';
+
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
+import sinonStubPromise from 'sinon-stub-promise';
+
+chai.use(sinonChai);
+sinonStubPromise(sinon);
+
+global.fetch = require('node-fetch');
 
 describe('Spotify', () => {
   describe('Smoke Tests', () => {
@@ -28,7 +37,10 @@ describe('Spotify', () => {
 
   describe('Generic Search', () => {
     it('should call fetch function', () => {
+      const fetchedStub = sinon.stub(global, 'fetch');
       const artists = search();
+
+      expect(fetchedStub).to.have.been.calledOnce;
     });
   });
 });
