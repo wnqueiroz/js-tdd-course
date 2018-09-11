@@ -9,10 +9,8 @@ import {
 
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import sinonStubPromise from 'sinon-stub-promise';
 
 chai.use(sinonChai);
-sinonStubPromise(sinon);
 
 global.fetch = require('node-fetch');
 
@@ -21,6 +19,7 @@ describe('Spotify', () => {
 
   beforeEach(() => {
     fetchedStub = sinon.stub(global, 'fetch');
+    fetchedStub.resolves({ json: () => ({ album: 'name' }) });
   });
 
   afterEach(() => {
@@ -71,6 +70,11 @@ describe('Spotify', () => {
           'https://api.spotify.com/v1/search?q=Maron%205&type=artist,album'
         );
       });
+    });
+
+    it('should return JSON Data from the Promise', () => {
+      const artists = search('Maron 5', 'artist');
+      artists.then(data => expect(data).to.be.eql({ album: 'name' }));
     });
   });
 });
