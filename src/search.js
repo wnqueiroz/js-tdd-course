@@ -1,6 +1,9 @@
+import { API_URL } from './config';
+import toJSON from './utils';
+
 const search = (query, type) => {
-  const url = `https://api.spotify.com/v1/search?q=${query}&type=${type}`;
-  return fetch(encodeURI(url)).then(data => data.json());
+  const url = `${API_URL}/search?q=${query}&type=${type}`;
+  return fetch(encodeURI(url)).then(toJSON);
 };
 const searchAlbums = query => search(query, 'album');
 const searchArtists = query => search(query, 'artist');

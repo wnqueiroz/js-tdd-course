@@ -8,13 +8,13 @@ import {
   searchArtists,
   searchTracks,
   searchPlaylists
-} from '../src/main';
+} from '../src/search';
 
 chai.use(sinonChai);
 
 global.fetch = require('node-fetch');
 
-describe('Spotify', () => {
+describe('Search', () => {
   let fetchedStub;
 
   beforeEach(() => {
