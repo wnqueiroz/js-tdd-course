@@ -7,6 +7,6 @@ global.fetch = require('node-fetch');
 const spotify = new SpotifyWrapper({
   token: 'YOUR_TOKEN'
 });
-const albuns = spotify.search.albums('Maroon 5');
+const albums = spotify.search.albums('Maroon 5');
 
-albuns.then(data => data.albums.items.map(item => console.log(item.name)));
+albums.then(data => data.albums.items.map(item => console.log(item.name)));

@@ -13,7 +13,10 @@
   <script src="../dist/spotify-wrapper.umd.js"></script>
 
   <script>
-    const albums = spotifyWrapper.searchAlbums('Incubus');
+    const spotify = new SpotifyWrapper({
+      token: 'YOUR_TOKEN'
+    });
+    const albums = spotify.search.albums('Metallica');
     const albumsEl = document.getElementById('albums');
     albums
       .then(data => {
