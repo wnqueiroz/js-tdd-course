@@ -5,14 +5,16 @@ const defaultProps = {
     bgColor: '#ccc',
     textColor: '#fff',
     font: 'sans-serif',
+    bgImg: '',
 };
 
-const FullHeader = ({ title, subtitle, bgColor: backgroundColor, textColor, font }) => {
+const FullHeader = ({ title, subtitle, bgColor: backgroundColor, textColor, font, bgImg }) => {
     const styles = {
         header: {
             backgroundColor,
             color: textColor,
             fontFamily: font,
+            backgroundImage: `url(${bgImg})`,
         },
     };
     const component = (
@@ -31,6 +33,7 @@ FullHeader.propTypes = {
     bgColor: PropTypes.string,
     textColor: PropTypes.string,
     font: PropTypes.string,
+    bgImg: PropTypes.string,
 };
 FullHeader.defaultProps = defaultProps;
 
