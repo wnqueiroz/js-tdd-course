@@ -49,7 +49,7 @@ storiesOf('React Full Header', module)
             subtitle="What's tested may never break."
             bgColor="#EBE9EB"
             textColor="#3299BB"
-            video="http://callmenick.com/_development/video/full-screen-background-video/media/demo.mp4"
+            video="https://www.w3schools.com/howto/rain.mp4"
         />
     ))
     ;

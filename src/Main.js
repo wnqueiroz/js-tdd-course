@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { headerStyle, containerStyle, titleStyle, subtitleStyle } from './Styles';
+import { headerStyle, containerStyle, titleStyle, subtitleStyle, videoStyle } from './Styles';
 
 const defaultProps = {
     bgColor: '#ccc',
     textColor: '#fff',
     font: 'sans-serif',
     bgImg: '',
+    video: '',
 };
 
-const FullHeader = ({ title, subtitle, bgColor: backgroundColor, textColor, font, bgImg }) => {
+const FullHeader = ({ title, subtitle, bgColor, textColor, font, bgImg, video }) => {
     const headerStyleCombined = {
         ...headerStyle,
-        backgroundColor,
+        backgroundColor: bgColor,
         color: textColor,
         fontFamily: font,
         backgroundImage: `url(${bgImg})`,
@@ -23,6 +24,7 @@ const FullHeader = ({ title, subtitle, bgColor: backgroundColor, textColor, font
                 {title && <h1 style={titleStyle}>{title}</h1>}
                 {subtitle && <h2 style={subtitleStyle}>{subtitle}</h2>}
             </div>
+            {video && <video style={videoStyle} autoPlay muted loop src={video} />}
         </header>
     );
 
@@ -36,6 +38,7 @@ FullHeader.propTypes = {
     textColor: PropTypes.string,
     font: PropTypes.string,
     bgImg: PropTypes.string,
+    video: PropTypes.string,
 };
 FullHeader.defaultProps = defaultProps;
 
