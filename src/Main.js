@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 
 const defaultProps = {
     bgColor: '#ccc',
+    textColor: '#fff',
+    font: 'sans-serif',
 };
 
-const FullHeader = ({ title, subtitle, bgColor: backgroundColor }) => {
+const FullHeader = ({ title, subtitle, bgColor: backgroundColor, textColor, font }) => {
     const styles = {
         header: {
             backgroundColor,
+            color: textColor,
+            fontFamily: font,
         },
     };
     const component = (
@@ -24,6 +28,9 @@ const FullHeader = ({ title, subtitle, bgColor: backgroundColor }) => {
 FullHeader.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
+    bgColor: PropTypes.string,
+    textColor: PropTypes.string,
+    font: PropTypes.string,
 };
 FullHeader.defaultProps = defaultProps;
 
