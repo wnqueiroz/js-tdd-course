@@ -69,6 +69,7 @@
     "webpack": "^2.4.1"
   },
   "dependencies": {
+    "just-extend": "^4.0.2",
     "lodash": "^4.17.11"
   }
 }
