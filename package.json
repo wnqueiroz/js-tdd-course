@@ -22,19 +22,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/willianjusten/spotify-wrapper-player.git"
+    "url": "git+https://github.com/wnqueiroz/js-tdd-course.git"
   },
   "keywords": [
     "js",
     "tdd",
     "library"
   ],
-  "author": "Willian Justen <willianjustenqui@gmail.com> (https://willianjusten.com.br/)",
+  "author": "Willian Queiroz <wnqueiroz@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/willianjusten/spotify-wrapper-player/issues"
+    "url": "https://github.com/wnqueiroz/js-tdd-course/issues"
   },
-  "homepage": "https://github.com/willianjusten/spotify-wrapper-player#readme",
+  "homepage": "https://github.com/wnqueiroz/js-tdd-course#readme",
   "devDependencies": {
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.3.2",
