@@ -5,7 +5,7 @@
 
 body {
   background: #121212;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #a0a0a0;
   display: flex;
   overflow: hidden;
@@ -205,7 +205,7 @@ body {
 }
 
 .music-number:after {
-  content: ".";
+  content: '.';
 }
 
 .music-title {
