@@ -16,4 +16,14 @@ describe('Main CLI', () => {
       done();
     });
   });
+
+  it('should return the description when btc-converter --help', (done) => {
+    exec(`${btcConverter} --help`, (err, stdout) => {
+      if (err) throw err;
+
+      expect(stdout.includes('Convert Bitcoin to any currency defined')).to.be.equal(true);
+
+      done();
+    });
+  });
 });
