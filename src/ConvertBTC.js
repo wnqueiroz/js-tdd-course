@@ -1,5 +1,5 @@
 const chalk = require('chalk');
-const request = require('request');
+const request = require('request-promise-native');
 const ora = require('ora');
 
 const spinner = ora({
@@ -11,20 +11,19 @@ const convertBTC = (currency = 'USD', amount = 1) => {
   const url = `https://apiv2.bitcoinaverage.com/convert/global?from=BTC&to=${currency}&amount=${amount}`;
 
   spinner.start();
-  request(url, (error, response, body) => {
-    spinner.stop();
-
-    let parsedBody = {};
-    try {
-      parsedBody = JSON.parse(body);
-    } catch (parseError) {
-      console.log(chalk.red('Something went wrong in the API. Try again in a few minutes.'));
-      return parseError;
-    }
-    const { price = 0 } = parsedBody;
-    console.log(`${chalk.red(amount)} BTC to ${chalk.cyan(currency)} = ${chalk.yellow(price)}`);
-    return null;
-  });
+  return request(url)
+    .then((body) => {
+      spinner.stop();
+      return body;
+    })
+    .then((body) => {
+      const { price = 0 } = JSON.parse(body);
+      console.info(`${chalk.red(amount)} BTC to ${chalk.cyan(currency)} = ${chalk.yellow(price)}`);
+    })
+    .catch(() => {
+      spinner.stop();
+      console.info(chalk.red('Something went wrong in the API. Try again in a few minutes.'));
+    });
 };
 
 module.exports = { convertBTC };
