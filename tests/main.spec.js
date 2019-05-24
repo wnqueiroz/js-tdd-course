@@ -6,11 +6,13 @@ const isWindows = process.platform === 'win32';
 
 const btcConverter = `${isWindows ? 'node.exe' : ''} ./src/main.js`;
 
+const { version } = require('../package.json');
+
 describe('Main CLI', () => {
-  it('should do return Hello World', (done) => {
-    exec(btcConverter, (err, stdout) => {
+  it('should return version of btc-converter', (done) => {
+    exec(`${btcConverter} --version`, (err, stdout) => {
       if (err) throw err;
-      expect(stdout.replace('\n', '')).to.be.equal('Hello World');
+      expect(stdout.replace('\n', '')).to.be.equal(version);
       done();
     });
   });
