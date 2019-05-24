@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 import nock from 'nock';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
@@ -33,7 +34,9 @@ describe('ConvertBTC', () => {
     convertBTC();
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledOnceWith(`1 BTC to USD = ${responseMock.price}`);
+      expect(consoleStub).to.have.been.calledOnceWith(
+        `${chalk.red('1')} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(responseMock.price)}`,
+      );
       done();
     }, 300);
   });
@@ -47,7 +50,9 @@ describe('ConvertBTC', () => {
     convertBTC('USD', 10);
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledOnceWith(`10 BTC to USD = ${responseMock.price}`);
+      expect(consoleStub).to.have.been.calledOnceWith(
+        `${chalk.red('10')} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(responseMock.price)}`,
+      );
       done();
     }, 300);
   });
@@ -61,7 +66,9 @@ describe('ConvertBTC', () => {
     convertBTC('BRL');
 
     setTimeout(() => {
-      expect(consoleStub).to.have.been.calledOnceWith(`1 BTC to BRL = ${responseMock.price}`);
+      expect(consoleStub).to.have.been.calledOnceWith(
+        `${chalk.red('1')} BTC to ${chalk.cyan('BRL')} = ${chalk.yellow(responseMock.price)}`,
+      );
       done();
     }, 300);
   });
@@ -76,7 +83,7 @@ describe('ConvertBTC', () => {
 
     setTimeout(() => {
       expect(consoleStub).to.have.been.calledOnceWith(
-        'Something went wrong in the API. Try again in a few minutes.',
+        chalk.red('Something went wrong in the API. Try again in a few minutes.'),
       );
       done();
     }, 300);

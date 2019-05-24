@@ -15,4 +15,4 @@ program
 
 const { currency, amount } = program;
 
-console.log(convertBTC(currency, amount));
+convertBTC(currency, amount);
